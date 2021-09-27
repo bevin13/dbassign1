@@ -78,9 +78,6 @@ print(
     "List of Doctors along with their Hospital Name\n")
 for item in cur1.fetchall():
     print("{}\t{}".format(item[0], item[1]))
-
-#hp = input("Enter Hospital_ID :")
-#cur3 = con1.execute("SELECT Doctor_ID,Doctor_Name,DOCTOR.Hospital_ID,Joining_Date,Speciality,Salary,Experience,Hospital_Name from DOCTOR,HOSPITAL where HOSPITAL.Hospital_ID=DOCTOR.Hospital_ID")
-#print(cur3.fetchall())
+    
 con.close()
 con1.close()
