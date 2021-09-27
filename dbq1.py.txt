@@ -1,0 +1,32 @@
+import sqlite3
+con = sqlite3.connect('car-list.db')
+cursor = con.cursor()
+cursor.execute("DROP TABLE IF EXISTS CARLIST")
+query = """CREATE TABLE CARLIST(
+        CARNAME CHAR(20) NOT NULL, 
+        OWNERNAME CHAR(20) NOT NULL)"""
+cursor.execute(query)
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Swift', 'Bevin')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Supra', 'Tijo')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Fortuner', 'Aswathi')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Civic', 'George')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Baleno', 'Hari')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Harrier', 'Arjun')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Lamborghini', 'Dalin')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Rolls-Royce Ghost', 'Afsal')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Endeavour', 'Nikhitha')")
+con.execute("INSERT INTO CARLIST (CARNAME,OWNERNAME) "
+                 "VALUES ('Wagonar', 'Acsah')")
+con.commit()
+cursor = con.execute("SELECT * from CARLIST")
+print(cursor.fetchall())
+con.close()
